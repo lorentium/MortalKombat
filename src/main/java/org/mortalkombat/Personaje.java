@@ -33,7 +33,4 @@ public class Personaje {
     public ArrayList<String> getMovimientosEspeciales() {
         return movimientosEspeciales;
     }
-    public void setId(int id) {
-        this.id = id;
-    }
 }
