@@ -26,8 +26,7 @@ public class PersonajeRepositoryTest {
         repo.agregarPersonaje(personaje2);
 
     }
-
-
+    
     @Test
     public void testAgregarPersonaje() {
         repo.agregarPersonaje(personaje1);

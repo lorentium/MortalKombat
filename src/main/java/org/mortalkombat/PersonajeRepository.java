@@ -21,6 +21,33 @@ public class PersonajeRepository {
         return false;
     }
 
+    public List<Personaje> obtenerPorNivelPoderMinimo(NivelPoder nivelMinimo) {
+        List<Personaje> resultado = new ArrayList<>();
+        for (Personaje p : personajes.values()) {
+            if (p.getNivelPoder().ordinal() >= nivelMinimo.ordinal()) {
+                resultado.add(p);
+            }
+        }
+        return resultado;
+    }
+
+    public List<Personaje> buscarPorNombre(String subcadena) {
+        String sub = subcadena.toLowerCase();
+        List<Personaje> resultado = new ArrayList<>();
+        for (Personaje p : personajes.values()) {
+            if (p.getNombre().toLowerCase().contains(sub)) {
+                resultado.add(p);
+            }
+        }
+        return resultado;
+    }
+
+    public List<Personaje> listarPorSaludMaximaDesc() {
+        List<Personaje> lista = new ArrayList<>(personajes.values());
+        lista.sort((a, b) -> Integer.compare(b.getSaludMaxima(), a.getSaludMaxima()));
+        return lista;
+    }
+
 
     public Optional<Personaje> obtenerPersonajePorId(long id) {
         return Optional.ofNullable(personajes.get(id));
