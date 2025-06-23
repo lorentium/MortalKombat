@@ -33,4 +33,9 @@ public class Personaje {
     public ArrayList<String> getMovimientosEspeciales() {
         return movimientosEspeciales;
     }
+
+    public void setNombre(String nombre) { this.nombre = nombre; }
+    public void setSaludMaxima(int saludMaxima) { this.saludMaxima = saludMaxima; }
+    public void setNivelPoder(NivelPoder nivelPoder) { this.NivelPoder = nivelPoder; }
+    public void setMovimientosEspeciales(ArrayList<String> movimientosEspeciales) { this.movimientosEspeciales = movimientosEspeciales; }
 }
