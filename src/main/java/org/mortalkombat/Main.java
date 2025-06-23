@@ -13,7 +13,6 @@ public class Main {
                 new ArrayList<>(List.of("Lanzar cadena", "Teletransportarse", "Lanzar fuego"))
         );
 
-        System.out.println("ID: " + personaje.getId());
 
 
     }
