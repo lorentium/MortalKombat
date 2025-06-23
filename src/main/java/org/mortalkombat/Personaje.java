@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Personaje {
-    private int id;
+    private long id;
     private String nombre;
     private int saludMaxima;
     private NivelPoder NivelPoder;
@@ -18,7 +18,7 @@ public class Personaje {
         this.movimientosEspeciales = movimientosEspeciales;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
     public String getNombre() {
@@ -36,17 +36,4 @@ public class Personaje {
     public void setId(int id) {
         this.id = id;
     }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-    public void setSaludMaxima(int saludMaxima) {
-        this.saludMaxima = saludMaxima;
-    }
-    public void setNivelPoder(NivelPoder nivelPoder) {
-        NivelPoder = nivelPoder;
-    }
-    public void setMovimientosEspeciales(ArrayList<String> movimientosEspeciales) {
-        this.movimientosEspeciales = movimientosEspeciales;
-    }
-
 }
