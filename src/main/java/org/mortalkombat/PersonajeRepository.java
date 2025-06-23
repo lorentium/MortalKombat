@@ -1,31 +1,24 @@
 package org.mortalkombat;
 
-import java.util.ArrayList;
-import java.util.Optional;
+import java.util.*;
 
 public class PersonajeRepository {
-    private ArrayList<Personaje> personajes= new ArrayList<>();
-    public void agregarPersonaje(Personaje personaje){
-        personajes.add(personaje);
+    private Map<Long, Personaje> personajes = new HashMap<>();
+    public void agregarPersonaje(Personaje personaje) {
+        personajes.put(personaje.getId(), personaje);
     }
 
-    public Optional<Personaje> obtenerPersonajePorId(int id) {
-        for (Personaje personaje : personajes) {
-            if (personaje.getId() == id) {
-                return Optional.of(personaje);
-            }
-        }
-        return Optional.empty();
+
+    public Optional<Personaje> obtenerPersonajePorId(long id) {
+        return Optional.ofNullable(personajes.get(id));
     }
 
     public ArrayList<Personaje> obtenerPersonajes() {
-        return personajes ;
+        return new ArrayList<>(personajes.values());
     }
-    public void eliminarPersonaje(int id) {
-        if (personajes != null) {
-            personajes.removeIf(personaje -> personaje.getId() == id);
-        }
 
+    public void eliminarPersonaje(long id) {
+        personajes.remove(id);
     }
 
 
