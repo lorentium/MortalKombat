@@ -8,13 +8,14 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mortalkombat.NivelPoder.*;
 
 public class PersonajeRepositoryTest {
 
     @Test
     public void testAgregarPersonaje() {
         PersonajeRepository repo = new PersonajeRepository();
-        Personaje personaje = new Personaje("Scorpion", 100, null, new ArrayList<>());
+        Personaje personaje = new Personaje("Scorpion", 100, ALTO, new ArrayList<>());
         repo.agregarPersonaje(personaje);
         assertTrue(repo.obtenerPersonajes().contains(personaje));
     }
@@ -22,7 +23,7 @@ public class PersonajeRepositoryTest {
     @Test
     public void testObtenerPersonajePorId() {
         PersonajeRepository repo = new PersonajeRepository();
-        Personaje personaje = new Personaje("Sub-Zero", 100, null, new ArrayList<>());
+        Personaje personaje = new Personaje("Sub-Zero", 100, BAJO, new ArrayList<>());
         repo.agregarPersonaje(personaje);
         Optional<Personaje> encontrado = repo.obtenerPersonajePorId(personaje.getId());
         assertTrue(encontrado.isPresent());
@@ -32,8 +33,8 @@ public class PersonajeRepositoryTest {
     @Test
     public void testObtenerPersonajes() {
         PersonajeRepository repo = new PersonajeRepository();
-        Personaje p1 = new Personaje("Liu Kang", 100, null, new ArrayList<>());
-        Personaje p2 = new Personaje("Raiden", 100, null, new ArrayList<>());
+        Personaje p1 = new Personaje("Liu Kang", 100, ALTO, new ArrayList<>());
+        Personaje p2 = new Personaje("Raiden", 100, MEDIO, new ArrayList<>());
         repo.agregarPersonaje(p1);
         repo.agregarPersonaje(p2);
         ArrayList<Personaje> personajes = repo.obtenerPersonajes();
