@@ -12,6 +12,7 @@ public class Main {
                 NivelPoder.ALTO,
                 new ArrayList<>(List.of("Lanzar cadena", "Teletransportarse", "Lanzar fuego"))
         );
+        PersonajeRepository repo = new PersonajeRepository();
 
 
 
