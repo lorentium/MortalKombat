@@ -19,9 +19,9 @@ public class PersonajeRepositoryTest {
 
     @BeforeEach
     public void setUp() {
-        PersonajeRepository repo = new PersonajeRepository();
-        Personaje personaje1 = new Personaje("Scorpion", 100, ALTO, new ArrayList<>());
-        Personaje personaje2 = new Personaje("Sub-Zero", 120, MEDIO, new ArrayList<>());
+        repo = new PersonajeRepository();
+        personaje1 = new Personaje("Scorpion", 100, ALTO, new ArrayList<>());
+        personaje2 = new Personaje("Sub-Zero", 120, MEDIO, new ArrayList<>());
         repo.agregarPersonaje(personaje1);
         repo.agregarPersonaje(personaje2);
 
