@@ -5,6 +5,7 @@ import org.mortalkombat.Personaje;
 import org.mortalkombat.PersonajeRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,9 +22,9 @@ public class PersonajeRepositoryTest {
     @BeforeEach
     public void setUp() {
         repo = new PersonajeRepository();
-        personaje1 = new Personaje("Scorpion", 100, ALTO, new ArrayList<>());
-        personaje2 = new Personaje("Sub-Zero", 120, MEDIO, new ArrayList<>());
-        personaje3 = new Personaje("Kitara", 50, BAJO, new ArrayList<>());
+        personaje1 = new Personaje("Scorpion", 100, ALTO, new ArrayList<>(List.of("Lanza infernal")));
+        personaje2 = new Personaje("Sub-Zero", 120, MEDIO, new ArrayList<>(List.of("Congelacion")));
+        personaje3 = new Personaje("Kitara", 50, BAJO, new ArrayList<>(List.of("Danza de cuchillas")));
         repo.agregarPersonaje(personaje1);
         repo.agregarPersonaje(personaje2);
 
@@ -51,6 +52,19 @@ public class PersonajeRepositoryTest {
 
 
         assertEquals(1, resultado.size());
+    }
+
+    @Test
+    public void testObtenerPorSaludMaxima(){
+        repo.agregarPersonaje(personaje1);
+        repo.agregarPersonaje(personaje2);
+        repo.agregarPersonaje(personaje3);
+        var resultado = repo.listarPorSaludMaximaDesc();
+        assertEquals(3, resultado.size());
+        assertEquals(personaje2, resultado.get(0)); // Sub-Zero con 120
+        assertEquals(personaje1, resultado.get(1)); // Scorpion con 100
+        assertEquals(personaje3, resultado.get(2)); // Kitara con 50
+        assertEquals(120, resultado.get(0).getSaludMaxima());
     }
 
     @Test
