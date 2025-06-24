@@ -89,10 +89,12 @@ public class PersonajeRepositoryTest {
     public void testObtenerPersonajes() {
         repo.agregarPersonaje(personaje1);
         repo.agregarPersonaje(personaje2);
+        repo.agregarPersonaje(personaje3);
         ArrayList<Personaje> personajes = repo.obtenerPersonajes();
-        assertEquals(2, personajes.size());
+        assertEquals(3, personajes.size());
         assertTrue(personajes.contains(personaje1));
         assertTrue(personajes.contains(personaje2));
+        assertTrue(personajes.contains(personaje3));
     }
 
     @Test
